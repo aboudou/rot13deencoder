@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowFullAccess</key>
+	<true/>
+	<key>AllowNetworkAccess</key>
+	<true/>
+	<key>AllowSystem</key>
+	<true/>
+	<key>CFBundleDisplayName</key>
+	<string>ROT13 [de|en]coder Widget</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.aboudou.widget.rot13</string>
+	<key>CFBundleName</key>
+	<string>ROT13 [de|en]coder Widget</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.2</string>
+	<key>CFBundleVersion</key>
+	<string>1.2</string>
+	<key>CloseBoxInsetX</key>
+	<integer>5</integer>
+	<key>CloseBoxInsetY</key>
+	<integer>5</integer>
+	<key>MainHTML</key>
+	<string>Index.html</string>
+</dict>
+</plist>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>ROT13 [de|en]coder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <script type='text/javascript' src='localizedStrings.js' charset='utf-8'/>
+    <script type="text/javascript" src="vars.js"></script>
+    <script type="text/javascript" src="convert.js"></script>
+    <script type="text/javascript" src="widget.js"></script>
+    <script type='text/javascript' src='file:///System/Library/WidgetResources/AppleClasses/AppleButton.js' charset='utf-8'></script>
+    <style type="text/css">
+      a img {border:0px;}
+      body {font-family:Helvetica; font-size:11px; background:url(Background.png) no-repeat top left; padding:6px 12px 2px 6px; margin:0px;}
+      form {display:inline;}
+      #back {display:none; color:#336699;}
+      #back p {margin:0px;}
+      #doneButton {position:absolute; bottom:10px; right:15px;}
+      #doneButton div {color:#000000 !important;}
+      #flip       {opacity:0; background:url(file:///System/Library/WidgetResources/ibutton/black_i.png) no-repeat top left; z-index:8000;}
+      #fliprollie {display:none; opacity:0.25; background:url(file:///System/Library/WidgetResources/ibutton/black_rollie.png) no-repeat top left; z-index:7999;}
+      #front {display:block; height:250px; margin:0px padding:0px;}
+      .flip {position:absolute; bottom:8px; right:8px; width:13px; height:13px;}
+      .text {position:absolute; top: 35px; left: 17px;}
+      .rot13 {position:absolute; top: 145px; left: 17px;}
+      .prefs {position:absolute; top: 45px; left: 17px;}
+      .label {color: #FFFFFF; font-size: 12px; font-weight: bold;}
+      .credits { position: absolute; bottom: 40px; text-align: center; width: 100%;}
+      .credits a {color: #FFFFFF; font-size: 12px; font-weight: bold;}
+    </style>
+  </head>
+
+  <body onload="init(); update();">
+    <div id="front" onmousemove="mousemove(event);" onmouseout="mouseexit(event);">
+      <form id="convert" action="">
+        <p class="text"><textarea id="text" name="text" rows="5" cols="30" onchange="update()" onkeydown="update()" onkeypress="update()" onkeyup="update()">Text to [en|de]code.</textarea></p>
+        <p class="rot13"><textarea id="rot13" name="rot13" rows="5" cols="30" onchange="undo()" onkeydown="undo()" onkeypress="undo()">Grkg gb [ra|qr]pbqr.</textarea></p>
+      </form>
+      
+      <div class="flip" id="flip" onclick="showBack(); exitflip(event);" onmouseover="enterflip(event);" onmouseout="exitflip(event);"></div>
+      <div class="flip" id="fliprollie"></div>
+    </div>
+    
+    <div id="back">
+      <form id="prefs" action="" class="prefs" onsubmit="return false;">
+        <p>
+          <span id='encodingFormat' class="label">Encoding format:</span>
+          <select id="encoding" name="encoding">
+            <option value="rot13">ROT13</option>
+            <option value="leet13">1337 R0T13</option>
+          </select>
+        </p>
+      </form>
+      <p class="credits">
+        <a href="javascript:widget.openURL('http://goddess-gate.com/dc2/index.php/post/243')">ROT13 [de|en]coder 1.1</a>
+        <br />
+        <a href="javascript:widget.openURL('http://goddess-gate.com/dc2/')">Goddess-Gate.com</a>
+      </p>
+      <div id='doneButton'></div>
+      <script type="text/javascript">
+        var doneButton = document.getElementById('doneButton');
+        var done_button = new AppleGlassButton (doneButton, getLocalizedString('Done'), hideBack);
+        init();
+        
+        document.getElementById('encodingFormat').innerText = getLocalizedString('Encoding format:');
+        document.getElementById('text').innerText = getLocalizedString('text to [en|de]code');
+      </script>
+    </div>
+  </body>
+</html>
